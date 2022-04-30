@@ -17,7 +17,7 @@ def get_ind_returns():
     try:
         ind = pd.read_csv("C:/Users/Younes/PycharmProjects/finance-courses/data/ind30_m_vw_rets.csv", header=0, index_col=0,
                           parse_dates=True) / 100
-    except Exception as e :
+    except Exception as e:
             ind = pd.read_csv("/home/yousef/PycharmProjects/finance-courses/data/ind30_m_vw_rets.csv", header=0, index_col=0,
                           parse_dates=True)/100
     except FileNotFoundError:
