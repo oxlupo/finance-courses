@@ -13,8 +13,15 @@ def path_to_data_folder():
     return "/Users/mariacristinasampaolo/Documents/python/git-tracked/finance-courses/data/"
 
 def get_ind_returns():
-    ind = pd.read_csv("C:/Users/Younes/PycharmProjects/finance-courses/data/ind30_m_vw_rets.csv", header=0, index_col=0,
-                      parse_dates=True) / 100
+
+    try:
+        ind = pd.read_csv("C:/Users/Younes/PycharmProjects/finance-courses/data/ind30_m_vw_rets.csv", header=0, index_col=0,
+                          parse_dates=True) / 100
+    except Exception as e :
+            ind = pd.read_csv("/home/yousef/PycharmProjects/finance-courses/data/ind30_m_vw_rets.csv", header=0, index_col=0,
+                          parse_dates=True)/100
+    except FileNotFoundError:
+         raise print("file not found ")
     ind.columns = ind.columns.str.strip()
     return ind
 
