@@ -23,6 +23,8 @@ def get_ind_returns():
     except FileNotFoundError:
          raise print("file not found ")
     ind.columns = ind.columns.str.strip()
+    ind.index = pd.to_datetime(ind.index, format="%Y%m").to_period("M")
+
     return ind
 
 def get_ffme_returns():
